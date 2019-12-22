@@ -51,29 +51,8 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  /* let out = (parseFloat(value1) + parseFloat(value2)) / 2;
-  if (value1 + value2 === 0) {
-    out = 0;
-  }
-
-  /* if (value1 + value2 === 'Infinity') {
-    out = value1;
-  }
-  return out; */
-  /* let out = (parseFloat(value1) + (value2)) / 2;
-
-  if (value1 + value2 === 0) {
-    out = 0;
-  }
-
-  if (value1 + value2 === 'Infinity') {
-    const val1 = value1 / 2;
-    const val2 = value2 / 2;
-    out = val1 + val2;
-  }
-  return out; */
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return (value1 / 2) + (value2 / 2);
 }
 
 /**

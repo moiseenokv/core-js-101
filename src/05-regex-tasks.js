@@ -32,7 +32,13 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-  throw new Error('Not implemented');
+  return {
+    test(regex) {
+      const oper = /^\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\}$/.test(regex);
+      // console.log(regex, oper);
+      return oper;
+    },
+  };
 }
 
 
@@ -54,7 +60,7 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  throw new Error('Not implemented');
+  return new RegExp('s+|w+|i+');
 }
 
 
@@ -78,10 +84,11 @@ function getRegexForPitSpot() {
  *   'PASSW0RD'.match(validator)  => false
  *   'Pa55'.match(validator) => false
  */
-function getPasswordValidator(/* minLength */) {
-  throw new Error('Not implemented');
+function getPasswordValidator(minLength) {
+  let regexRule = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{COUNT_TIMES,}$';
+  regexRule = regexRule.replace('COUNT_TIMES', minLength);
+  return new RegExp(regexRule);
 }
-
 
 module.exports = {
   getRegexForGuid,
